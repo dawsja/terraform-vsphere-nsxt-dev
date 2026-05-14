@@ -1,0 +1,36 @@
+# Copy this file to terraform.auto.tfvars and populate with your values.
+# Do NOT commit terraform.auto.tfvars to source control.
+# Credentials are supplied via TF_VAR_* environment variables.
+
+# ----------------------------
+# vSphere
+# ----------------------------
+vsphere_server               = "vcenter.example.com"
+vsphere_allow_unverified_ssl = false
+vsphere_datacenter           = "Datacenter"
+vsphere_cluster              = "Cluster"
+
+# ----------------------------
+# NSX-T
+# ----------------------------
+nsxt_host                 = "nsxt-manager.example.com"
+nsxt_allow_unverified_ssl = false
+
+# ----------------------------
+# Virtual Machines
+# ----------------------------
+vms = {
+  example-ubuntu = {
+    template_name = "ubuntu-template"
+    datastore     = "Datastore"
+    vm_folder     = "Folder"
+    network       = "Network"
+    num_cpus      = 2
+    memory        = 8192
+    disk_size     = 70
+    base_tags = [
+      "example-tag",
+    ]
+  }
+}
+
